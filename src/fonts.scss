@@ -1,0 +1,181 @@
+/* Noto Sans Georgian */
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian Thin"),
+    local("NotoSansGeorgian-Thin"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian ExtraLight"),
+    local("NotoSansGeorgian-ExtraLight"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian Light"),
+    local("NotoSansGeorgian-Light"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian Regular"),
+    local("NotoSansGeorgian-Regular"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian Medium"),
+    local("NotoSansGeorgian-Medium"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian SemiBold"),
+    local("NotoSansGeorgian-SemiBold"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian Bold"),
+    local("NotoSansGeorgian-Bold"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian ExtraBold"),
+    local("NotoSansGeorgian-ExtraBold"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Georgian";
+  src:
+    local("Noto Sans Georgian Black"),
+    local("NotoSansGeorgian-Black"),
+    url("/fonts/notoSansGeorgian/NotoSansGeorgian-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Manrope */
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope ExtraLight"),
+    local("Manrope-ExtraLight"),
+    url("/fonts/manrope/Manrope-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Light"),
+    local("Manrope-Light"),
+    url("/fonts/manrope/Manrope-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Regular"),
+    local("Manrope-Regular"),
+    url("/fonts/manrope/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Medium"),
+    local("Manrope-Medium"),
+    url("/fonts/manrope/Manrope-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope SemiBold"),
+    local("Manrope-SemiBold"),
+    url("/fonts/manrope/Manrope-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope Bold"),
+    local("Manrope-Bold"),
+    url("/fonts/manrope/Manrope-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src:
+    local("Manrope ExtraBold"),
+    local("Manrope-ExtraBold"),
+    url("/fonts/manrope/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Manrope", "Noto Sans Georgian", Arial, sans-serif;
+}
