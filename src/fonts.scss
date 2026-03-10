@@ -176,6 +176,14 @@
   font-display: swap;
 }
 
+:root[data-locale="en"] {
+  --app-font-family: "Manrope", "Noto Sans Georgian", Arial, sans-serif;
+}
+
+:root[data-locale="ka-GE"] {
+  --app-font-family: "Noto Sans Georgian", "Manrope", Arial, sans-serif;
+}
+
 body {
-  font-family: "Manrope", "Noto Sans Georgian", Arial, sans-serif;
+  font-family: var(--app-font-family, "Manrope", "Noto Sans Georgian", Arial, sans-serif);
 }

@@ -1,6 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access */
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  i18n: {
+    locales: ["ka-GE", "en"],
+    defaultLocale: "ka-GE",
+    localeDetection: false,
+  },
   turbopack: {
     root: process.cwd(),
     rules: {
@@ -10,30 +17,32 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  webpack(config) {
-    // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule: { test?: RegExp }) =>
-      rule.test?.test?.(".svg"),
-    );
+  webpack(config: any) {
+    const rules = config.module?.rules || [];
 
-    config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
-      {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/, // *.svg?url
-      },
-      // Convert all other *.svg imports to React components
-      {
-        test: /\.svg$/i,
-        issuer: fileLoaderRule?.issuer,
-        resourceQuery: { not: [...(fileLoaderRule?.resourceQuery?.not ?? []), /url/] },
-        use: ["@svgr/webpack"],
-      },
-    );
+    const fileLoaderRule = rules.find((rule: any) => {
+      if (rule && typeof rule === "object" && "test" in rule) {
+        const testRegex = rule.test as RegExp;
+        return testRegex?.test?.(".svg");
+      }
+      return false;
+    });
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    if (fileLoaderRule) {
+    if (fileLoaderRule && typeof fileLoaderRule === "object") {
+      rules.push(
+        {
+          ...fileLoaderRule,
+          test: /\.svg$/i,
+          resourceQuery: /url/,
+        },
+        {
+          test: /\.svg$/i,
+          issuer: fileLoaderRule.issuer,
+          resourceQuery: { not: [/url/] },
+          use: ["@svgr/webpack"],
+        },
+      );
+
       fileLoaderRule.exclude = /\.svg$/i;
     }
 
