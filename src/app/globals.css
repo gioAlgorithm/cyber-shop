@@ -5,3 +5,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+.content-wrapper {
+  width: 95%;
+  max-width: 1119px;
+  margin-left: auto;
+  margin-right: auto;
+}
