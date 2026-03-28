@@ -1,9 +1,27 @@
 const ka = {
-  home_title: "დასაწყებად შეცვალეთ page.tsx ფაილი.",
-  home_description:
-    "ეძებთ საწყის წერტილს ან მეტ ინსტრუქციას? გადადით შაბლონებზე ან სასწავლო ცენტრში.",
-  home_deployCta: "გამოქვეყნება ახლა",
-  home_docsCta: "დოკუმენტაცია",
+  logo_brand: "Sell-Site",
+  nav_categories: "კატეგორიები",
+  nav_add: "დამატება",
+  nav_favorites_aria: "ფავორიტები",
+  lang_select_aria: "ენა",
+  lang_name_en: "ინგლისური",
+  lang_name_ka: "ქართული",
+  main_search_title: "მოძებნე სასურველი ონლაინ ბიზნესი",
+  main_search_placeholder: "ჩაწერე საძიები სიტყვა",
+  main_search_button: "მოძებნე",
+  main_search_aria_short: "მოძებნე",
+  navbar_search_placeholder: "მოძებნე სასურველი ბიზნესი…",
+  page_vip: "VIP",
+  card_price: "ფასი",
+  card_favorite: "ფავორიტი",
+  card_view: "ნახვა",
+  card_type: "ტიპი",
+  card_industry: "ინდუსტრია",
+  card_monetization: "მონეტიზაცია",
+  card_age: "ასაკი",
+  card_revenue: "შემოსავალი/მოგება",
+  card_years_suffix: "წელი",
+  card_image_alt: "სურათი",
 } as const;
 
 export default ka;

@@ -37,6 +37,7 @@ export const LocaleProvider = ({ children }: { children: ReactNode }) => {
       // Reflect locale on the <html> element for styling (fonts, etc.)
       if (typeof document !== "undefined") {
         document.documentElement.setAttribute("data-locale", locale);
+        document.documentElement.lang = locale === "ka-GE" ? "ka" : "en";
       }
     }
   }, [locale, isLoaded]);

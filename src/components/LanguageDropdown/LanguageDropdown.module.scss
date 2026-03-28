@@ -1,0 +1,98 @@
+.wrap {
+  position: relative;
+  margin-right: 0.8rem;
+  width: fit-content;
+  flex-shrink: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 40px;
+  height: 40px;
+  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgb(220, 220, 220);
+  background-color: white;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.triggerLabel {
+  font-size: 14px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.8;
+  }
+
+  path {
+    fill: black;
+  }
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  margin: 0;
+  padding: 0.35rem 0;
+  list-style: none;
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow:
+    rgba(0, 0, 0, 0.06) 0px 4px 12px,
+    rgba(27, 31, 35, 0.08) 0px 0px 0px 1px;
+  z-index: 200;
+  min-width: 200px;
+  width: max-content;
+}
+
+.option {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  opacity: 0.85;
+  color: inherit;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(255, 69, 0, 0.08);
+    color: rgba(255, 69, 0, 0.95);
+    opacity: 1;
+  }
+}
+
+.optionActive {
+  font-weight: 600;
+  color: rgba(255, 69, 0, 0.95);
+  opacity: 1;
+}

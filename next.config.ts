@@ -3,6 +3,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.licdn.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
+        pathname: "/**",
+      },
+    ],
+  },
   i18n: {
     locales: ["ka-GE", "en"],
     defaultLocale: "ka-GE",

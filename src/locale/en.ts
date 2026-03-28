@@ -1,9 +1,27 @@
 const en = {
-  home_title: "To get started, edit the page.tsx file.",
-  home_description:
-    "Looking for a starting point or more instructions? Head over to the Templates or the Learning center.",
-  home_deployCta: "Deploy Now",
-  home_docsCta: "Documentation",
+  logo_brand: "Sell-Site",
+  nav_categories: "Categories",
+  nav_add: "Add",
+  nav_favorites_aria: "Favorites",
+  lang_select_aria: "Language",
+  lang_name_en: "English",
+  lang_name_ka: "Georgian",
+  main_search_title: "Find the online business you want",
+  main_search_placeholder: "Enter a search term",
+  main_search_button: "Search",
+  main_search_aria_short: "Search",
+  navbar_search_placeholder: "Search for a business…",
+  page_vip: "VIP",
+  card_price: "Price",
+  card_favorite: "Favorite",
+  card_view: "View",
+  card_type: "Type",
+  card_industry: "Industry",
+  card_monetization: "Monetization",
+  card_age: "Age",
+  card_revenue: "Revenue / profit",
+  card_years_suffix: "years",
+  card_image_alt: "Listing image",
 } as const;
 
 export default en;
