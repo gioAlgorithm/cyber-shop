@@ -60,13 +60,14 @@
       height: 40px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 0.6rem;
       padding: 0.5rem 1rem;
       border-radius: 1rem;
       background-color: rgb(255, 69, 0, 0.9);
       margin-right: 0.8rem;
       cursor: pointer;
-      color: white;
+      color: black;
       h4 {
         font-size: 14px;
         opacity: 0.8;
@@ -76,9 +77,13 @@
         width: 18px;
         height: 18px;
         opacity: 0.8;
+        flex-shrink: 0;
       }
       path {
         fill: currentColor;
+      }
+      svg * {
+        stroke: currentColor;
       }
     }
 
