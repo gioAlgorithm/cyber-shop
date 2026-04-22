@@ -12,6 +12,15 @@ const ka = {
   main_search_aria_short: "მოძებნე",
   navbar_search_placeholder: "მოძებნე სასურველი ბიზნესი…",
   page_vip: "VIP",
+  home_title: "Sell-Site - იპოვე ონლაინ ბიზნესი",
+  home_description:
+    "დაათვალიერე ონლაინ ბიზნესის შერჩეული განცხადებები, შეადარე შეთავაზებები და იპოვე სწორი შესაძლებლობა.",
+  about_title: "Sell-Site-ის შესახებ",
+  about_description:
+    "გაიგე რას აკეთებს Sell-Site და როგორ ეხმარება მომხმარებლებს ონლაინ ბიზნესების აღმოჩენაში.",
+  about_heading: "ჩვენ შესახებ",
+  about_body:
+    "Sell-Site არის პლატფორმა, სადაც სხვადასხვა ინდუსტრიიდან ონლაინ ბიზნესის განცხადებების აღმოჩენაა შესაძლებელი.",
   card_price: "ფასი",
   card_favorite: "ფავორიტი",
   card_view: "ნახვა",

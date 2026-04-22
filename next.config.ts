@@ -17,11 +17,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  i18n: {
-    locales: ["ka-GE", "en"],
-    defaultLocale: "ka-GE",
-    localeDetection: false,
-  },
   turbopack: {
     root: process.cwd(),
     rules: {

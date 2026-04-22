@@ -1,8 +1,9 @@
 "use client";
 
-import { IconArrowDown } from "@/icons";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import useTranslation from "@/hooks/useTranslation";
+import { IconArrowDown } from "@/icons";
+import { LOCALE_LABEL_KEY, SUPPORTED_LOCALES } from "@/locale/i18n";
 import { useCallback, useRef, useState } from "react";
 import styles from "./LanguageDropdown.module.scss";
 
@@ -11,10 +12,10 @@ const LanguageDropdown = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const options = [
-    { code: "en" as const, label: t("lang_name_en") },
-    { code: "ka-GE" as const, label: t("lang_name_ka") },
-  ] as const;
+  const options = SUPPORTED_LOCALES.map((code) => ({
+    code,
+    label: t(LOCALE_LABEL_KEY[code]),
+  }));
 
   const close = useCallback(() => {
     setOpen(false);

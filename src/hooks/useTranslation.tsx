@@ -1,106 +1,52 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import en from "../locale/en";
-import ka from "../locale/ka";
-import { TranslateData } from "../locale/translate.interface";
+import {
+  DEFAULT_LOCALE,
+  getTranslator,
+  isSupportedLocale,
+  type SupportedLocale,
+} from "@/locale/i18n";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { useMemo } from "react";
 
-// Define the translation keys type based on the en object
-type TranslationKeys = keyof typeof en;
-
-interface LocaleContextType {
-  locale: string;
-  setLocale: (locale: string) => void;
-  isLoaded: boolean;
-}
-
-export const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
-
-export const LocaleProvider = ({ children }: { children: ReactNode }) => {
-  const [locale, setLocale] = useState<string>("en");
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    // Load locale from localStorage on mount
-    const saved = localStorage.getItem("locale");
-    if (saved && (saved === "en" || saved === "ka-GE")) {
-      setLocale(saved);
-    }
-    setIsLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    if (isLoaded) {
-      // Persist locale
-      localStorage.setItem("locale", locale);
-
-      // Reflect locale on the <html> element for styling (fonts, etc.)
-      if (typeof document !== "undefined") {
-        document.documentElement.setAttribute("data-locale", locale);
-        document.documentElement.lang = locale === "ka-GE" ? "ka" : "en";
-      }
-    }
-  }, [locale, isLoaded]);
-
-  // Don't render children until locale is loaded from localStorage
-  if (!isLoaded) {
-    return null;
+const replacePathLocale = (
+  pathname: string,
+  currentLocale: SupportedLocale,
+  nextLocale: SupportedLocale,
+): string => {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments.length === 0) {
+    return `/${nextLocale}`;
   }
 
-  return (
-    <LocaleContext.Provider value={{ locale, setLocale, isLoaded }}>
-      {children}
-    </LocaleContext.Provider>
-  );
-};
-
-const useLocale = () => {
-  const ctx = useContext(LocaleContext);
-  if (!ctx) {
-    throw new Error("useLocale must be used within a LocaleProvider");
+  if (segments[0] === currentLocale) {
+    segments[0] = nextLocale;
+    return `/${segments.join("/")}`;
   }
-  return ctx;
-};
 
-const getWordByLocale = (key: TranslationKeys, locale?: string): string | undefined => {
-  switch (locale) {
-    case "en":
-      return en[key];
-    case "ka-GE":
-      return ka[key];
-    default:
-      return undefined;
-  }
-};
-
-const getDataByLocale = <T,>(data: TranslateData<T>, locale?: string): T | undefined => {
-  switch (locale) {
-    case "en":
-      return data.en;
-    case "ka-GE":
-      return data.ka;
-    default:
-      return undefined;
-  }
+  return `/${nextLocale}/${segments.join("/")}`;
 };
 
 const useTranslation = () => {
-  const { locale, setLocale } = useLocale();
+  const params = useParams<{ locale?: string }>();
+  const pathname = usePathname();
+  const router = useRouter();
+  const routeLocale = params?.locale;
+  const locale: SupportedLocale =
+    routeLocale && isSupportedLocale(routeLocale) ? routeLocale : DEFAULT_LOCALE;
 
-  const t = (key: TranslationKeys): string => {
-    const word = getWordByLocale(key, locale) ?? getWordByLocale(key, "en");
-    if (!word) {
-      console.warn(`No translation found for key '${key}' in locale '${locale}'`);
-      return key;
+  const translator = useMemo(() => getTranslator(locale), [locale]);
+
+  const setLocale = (nextLocale: string) => {
+    if (!isSupportedLocale(nextLocale) || nextLocale === locale) {
+      return;
     }
-    return word;
+
+    const nextPath = replacePathLocale(pathname, locale, nextLocale);
+    router.replace(nextPath, { scroll: false });
   };
 
-  const tData = <T,>(data: TranslateData<T>): T | undefined => {
-    return getDataByLocale(data, locale) ?? getDataByLocale(data, "en");
-  };
-
-  return { locale, t, tData, setLocale };
+  return { ...translator, setLocale };
 };
 
 export default useTranslation;

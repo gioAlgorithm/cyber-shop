@@ -12,6 +12,15 @@ const en = {
   main_search_aria_short: "Search",
   navbar_search_placeholder: "Search for a business…",
   page_vip: "VIP",
+  home_title: "Sell-Site - Discover online businesses",
+  home_description:
+    "Browse curated online businesses, compare listings, and find the right opportunity.",
+  about_title: "About Sell-Site",
+  about_description:
+    "Learn what Sell-Site does and how it helps buyers discover online businesses.",
+  about_heading: "About us",
+  about_body:
+    "Sell-Site is a marketplace-style experience for discovering online business listings across industries.",
   card_price: "Price",
   card_favorite: "Favorite",
   card_view: "View",

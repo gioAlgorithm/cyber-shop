@@ -1,14 +1,16 @@
-"use client";
-
+import { getTranslator, type SupportedLocale } from "@/locale/i18n";
 import Link from "next/link";
-import useTranslation from "@/hooks/useTranslation";
 import styles from "./Logo.module.scss";
 
-const Logo = () => {
-  const { t } = useTranslation();
+type LogoProps = {
+  locale: SupportedLocale;
+};
+
+const Logo = ({ locale }: LogoProps) => {
+  const { t } = getTranslator(locale);
 
   return (
-    <Link className={styles.logo} href="/">
+    <Link className={styles.logo} href={`/${locale}`}>
       {t("logo_brand")}
     </Link>
   );

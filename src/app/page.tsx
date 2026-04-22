@@ -1,22 +1,8 @@
-"use client";
+import { DEFAULT_LOCALE } from "@/locale/i18n";
+import { permanentRedirect } from "next/navigation";
 
-import CardContainer from "@/components/CardContainer/CardContainer";
-import MainSearch from "@/components/MainSearch/MainSearch";
-import useTranslation from "@/hooks/useTranslation";
-import styles from "./page.module.scss";
-
-const Home = () => {
-  const { t } = useTranslation();
-
-  return (
-    <main className={styles.main}>
-      <div className={`content-wrapper ${styles.inner}`}>
-        <MainSearch />
-        <h1 className={styles.vip}>{t("page_vip")}</h1>
-        <CardContainer />
-      </div>
-    </main>
-  );
+const RootRedirectPage = () => {
+  permanentRedirect(`/${DEFAULT_LOCALE}`);
 };
 
-export default Home;
+export default RootRedirectPage;

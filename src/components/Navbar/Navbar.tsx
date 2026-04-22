@@ -1,20 +1,22 @@
-"use client";
-
 import { IconArrowDown, IconHeart, IconPlusCircle } from "@/icons";
-import useTranslation from "@/hooks/useTranslation";
+import { getTranslator, type SupportedLocale } from "@/locale/i18n";
 import LanguageDropdown from "../LanguageDropdown/LanguageDropdown";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./Navbar.module.scss";
 
-const Navbar = () => {
-  const { t } = useTranslation();
+type NavbarProps = {
+  locale: SupportedLocale;
+};
+
+const Navbar = ({ locale }: NavbarProps) => {
+  const { t } = getTranslator(locale);
 
   return (
     <div className={styles.container}>
       <div className={`content-wrapper ${styles.inner}`}>
         <div className={styles.left}>
-          <Logo />
+          <Logo locale={locale} />
           <div className={styles.allCategory}>
             <h4>{t("nav_categories")}</h4>
             <IconArrowDown />
